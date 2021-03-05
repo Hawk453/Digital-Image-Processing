@@ -1,7 +1,7 @@
 % ECE3005 Digital Image Processing
 % Task1- Feature Extraction using State of the Haar technique:
 % Speeded-Up Robust Features (SURF)
-% Name: Saksham Madan    Reg.No: 18BEC0724    Ph: 9674938252    Slot: L49-50
+
 
 
 clc; %clear command window

@@ -1,4 +1,3 @@
-%Name: Saksham Madan    Reg.No: 18BEC0724    Ph: 9674938252    Slot: L49-L50
 %Task 2: 
 %AIM: Performance of spatial filtering operations.
 %Xray image of a wrist is used.
