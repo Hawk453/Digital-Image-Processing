@@ -1,4 +1,4 @@
-
+% Task 4: Brain Tumor Detection and classification using ANN(nprtool)
 
 clc;%clear command window
 clear variables;%clear workspace
@@ -68,15 +68,16 @@ Contrast = stats.Contrast%returns cached value of contrast
 Correlation = stats.Correlation
 Energy = stats.Energy
 Homogeneity = stats.Homogeneity
-Mean = mean2(G)
-Standard_Deviation = std2(G)
-Entropy = entropy(G)
-RMS = mean2(rms(G))
-Variance = mean2(var(double(G)))
-b = sum(double(G(:)));
-Smoothness = (1-(1/(1+b)))
-Kurtosis = kurtosis(double(G(:)))
-Skewness = skewness(double(G(:)))
+Mean = mean2(G)%computes the mean of all values in array G
+Standard_Deviation = std2(G)%computes the standard deviation of all values 
+%in the array G
+Entropy = entropy(G)%computes the entropy of all values in array G
+RMS = mean2(rms(G))%computes the RMS value of all values in array G
+Variance = mean2(var(double(G)))%computes the Variance of all values in array G
+b = sum(double(G(:)));%adding all the values of matrix G
+Smoothness = (1-(1/(1+b)))%Calculating smoothness of G
+Kurtosis = kurtosis(double(G(:)))%Calculating Kurtosis of G
+Skewness = skewness(double(G(:)))%Calculating Skewness of G
 m = size(G,1);
 n = size(G,2);
 in_diff = 0;
@@ -87,6 +88,32 @@ for i = 1:m
     end
 end
 
-IDM = double(in_diff)
-
+IDM = double(in_diff)%Calculating IDM of G
+%Displaying all the features in 1 variable
 feat =[Contrast, Correlation, Energy, Homogeneity, Mean, Standard_Deviation, Entropy, RMS, Variance, Smoothness, Kurtosis, Skewness, IDM];
+
+
+%%%%%  Conclusion %%%%%%%%%%%
+% In this experiment we have taken 15 samples 10 are Malignant (HGG) and 
+% 5 are Benign (LGG). Kmean clustering technique is applied to detect the 
+% tumor, alongside 13 features were detected of each and every sample.
+% The data base was establised for 15 samples, named as TRAIN ANN.mat and 
+% target was created using database. Using nprtool the experiment was 
+% performed and the accuracy was calculated through confusion matrix 
+% ((TP+TN)/TP+FN+FP+TF). It is obsered for 15 samples we achieved 60% of 
+% accuracy, by increasing the number of training set we aim to achieve
+% more accuracy.
+
+
+%%% Significance of DWT here:
+
+%The 2-D wavelet decomposition algorithm for images is similar to the 
+%one-dimensional case. The two-dimensional wavelet and scaling functions 
+%are obtained by taking the tensor products of the one-dimensional wavelet 
+%and scaling functions. This kind of two-dimensional DWT leads to a 
+%decomposition of approximation coefficients at level j in four components:
+%the approximation at level j + 1, and the details in three orientations 
+%(horizontal, vertical, and diagonal). First, the one-dimensional DWT is 
+%applied along the rows;second, the one-dimensional DWT is applied along 
+%the columns of the first-stage result, generating foursub-band regions in 
+%the transformed space: LL, LH, HL and HH.
